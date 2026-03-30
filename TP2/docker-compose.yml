@@ -1,0 +1,11 @@
+services:
+  mqtt-broker:
+    image: eclipse-mosquitto:2.0.15
+    container_name: mosquitto_secure
+    ports:
+      - "8883:8883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - ./passwd:/etc/mosquitto/passwd
+      - ./acl:/etc/mosquitto/acl
+      - ./certs:/etc/mosquitto/certs
